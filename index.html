@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Complexo com Fundo Animado</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link para o CSS externo -->
+</head>
+<body>
+    <div class="container">
+        <video class="background-video" autoplay loop muted>
+            <source src="videosite.mp4" type="video/mp4">
+        </video>
+
+        <div class="content scroll-effect">
+            <h1>Bem-vindo ao meu site intelectual</h1>
+            <p>Temos como intuito levar o conhecimento em todo o universo</p>
+            <a href="pagina.html">
+                <button class="button">Buscar conhecimento</button>
+            </a>
+        </div>
+    </div>
+
+    <script src="particles.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
+
+        // Efeito de rolagem
+        window.addEventListener('scroll', function() {
+            const content = document.querySelector('.scroll-effect');
+            const scrollPosition = window.scrollY;
+
+            if (scrollPosition > 50) {
+                content.style.animation = 'fadeIn 1s ease forwards';
+            }
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            height: 200vh; /* Para permitir rolagem */
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: slide 1s ease-in-out forwards;
+        }
+
+        @keyframes slide {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #ddd;
+        }
+
+        /* Efeito de rolagem */
+        .scroll-effect {
+            position: relative;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Estilo para o botão */
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background: #218838;
+        }
+    </style>
+</body>
+</html>

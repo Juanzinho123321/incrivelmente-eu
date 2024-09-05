@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metafísico</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('animate-start');
+    });
+  </script>  
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Carregar efeito de explosão
+      particlesJS.load("particles-js", "particles-explosion.json", function() {
+        console.log("Efeito de explosão carregado");
+        // Mudar para o efeito padrão após 3 segundos
+        setTimeout(() => {
+          particlesJS.load("particles-js", "particles.json", function() {
+            console.log("Configuração padrão carregada");
+          });
+        }, 3000); // Tempo de duração do efeito de explosão
+      });
+
+      // Adicionar animação de entrada
+      setTimeout(() => {
+        document.body.classList.add('animate-in');
+      }, 3500); // Atraso para permitir o efeito de partículas
+    });
+  </script>
+  <style>
+    body {
+      color: white;
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      margin: 0;
+      font-family: "Chakra Petch", sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .particles-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Coloca as partículas atrás do conteúdo */
+    }
+
+    .chamada, .categoria, .sobre, .contato, footer {
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .animate-in .chamada, .animate-in .categoria, .animate-in .sobre, .animate-in .contato, .animate-in footer {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#videos">Vídeos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <h1>Universo Questionável</h1>
+  </header>
+
+  <section class="chamada" id="home">
+    <div id="particles-js" class="particles-container"></div>
+    <div class="chamada-texto">
+      <h1>O que seria a grande teoria da Floresta Negra?</h1>
+      <p>#ciências</p>
+    </div>
+    <div class="video-container">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/NWbPmXmF3Vk?si=FjTsAx2T2eERmlew"
+        title="YouTube video player"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+
+  <section class="categoria" id="videos">
+    <h2>Planetas e Galáxia</h2>
+    <div class="categoria-videos">
+      <a href="https://www.youtube.com/watch?v=5XEKoy3ULLg" class="video-card">
+        <img
+          src="https://img.youtube.com/vi/5XEKoy3ULLg/maxresdefault.jpg"
+          alt="Planetas"
+        />
+        <div class="video-title">Planetas</div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=lNbfmoSx1Sc" class="video-card">
+        <img
+          src="https://img.youtube.com/vi/lNbfmoSx1Sc/maxresdefault.jpg"
+          alt="Planetas"
+        />
+        <div class="video-title">Planetas</div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=XidS8iZpI0k" class="video-card">
+        <img
+          src="https://img.youtube.com/vi/XidS8iZpI0k/maxresdefault.jpg"
+          alt="Planetas"
+        />
+        <div class="video-title">Planetas</div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=WdXQabecaEs" class="video-card">
+        <img
+          src="https://img.youtube.com/vi/WdXQabecaEs/maxresdefault.jpg"
+          alt="Planetas"
+        />
+        <div class="video-title">Planetas</div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=-iT09map62w" class="video-card">
+        <img
+          src="https://img.youtube.com/vi/-iT09map62w/maxresdefault.jpg"
+          alt="Planetas"
+        />
+        <div class="video-title">Planetas</div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=GgZCN4VJQ-M" class="video-card">
+        <img
+          src="https://img.youtube.com/vi/GgZCN4VJQ-M/maxresdefault.jpg"
+          alt="Planetas"
+        />
+        <div class="video-title">Planetas</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sobre" id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>
+      Bem-vindo ao Universo Questionável, onde exploramos os mistérios do
+      cosmos e as teorias que nos cercam. Junte-se a nós nessa jornada de
+      conhecimento!
+    </p>
+  </section>
+
+  <section class="contato" id="contato">
+    <h2>Comentários</h2>
+    <form onsubmit="enviarComentario(event)">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required />
+      <label for="comentario">Comentário:</label>
+      <textarea id="comentario" name="comentario" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Compartilhe nas redes sociais:</p>
+    <div class="social-buttons">
+      <a
+        href="https://www.facebook.com/sharer/sharer.php?u=URL_DO_SEU_SITE"
+        class="social-button"
+        target="_blank"
+        >Facebook</a
+      >
+      <a
+        href="https://twitter.com/intent/tweet?url=URL_DO_SEU_SITE"
+        class="social-button"
+        target="_blank"
+        >Twitter</a
+      >
+      <a
+        href="https://www.instagram.com/?url=URL_DO_SEU_SITE"
+        class="social-button"
+        target="_blank"
+        >Instagram</a
+      >
+    </div>
+  </footer>
+</body>
+</html>
