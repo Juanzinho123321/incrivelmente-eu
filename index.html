@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universo Questionável</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link para o CSS externo -->
+    <link rel="stylesheet" href="style.css"> <!-- Link para o CSS externo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"> <!-- Fonte moderna -->
 </head>
 <body>
     <div class="container">
@@ -40,9 +43,10 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Orbitron', sans-serif; /* Fonte moderna */
             overflow: hidden;
             height: 200vh; /* Para permitir rolagem */
+            background: linear-gradient(135deg, #0e0e0e, #1a1a1a);
         }
 
         .container {
@@ -63,6 +67,7 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
+            opacity: 0.7; /* Levemente transparente */
         }
 
         .content {
@@ -71,62 +76,58 @@
             width: 80%;
             max-width: 800px;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8); /* Fundo mais escuro */
             border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            animation: slide 1s ease-in-out forwards;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
+            animation: fadeIn 1s ease forwards; /* Animação de entrada */
         }
 
-        @keyframes slide {
+        @keyframes fadeIn {
             from {
-                transform: translateY(50px);
                 opacity: 0;
+                transform: translateY(20px);
             }
             to {
-                transform: translateY(0);
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
         h1 {
-            color: #fff;
+            color: #00ffcc; /* Cor futurista */
             margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 255, 204, 0.8); /* Sombra de texto */
         }
 
         p {
             color: #ddd;
         }
 
-        /* Efeito de rolagem */
-        .scroll-effect {
-            position: relative;
-            animation: fadeIn 1s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
         /* Estilo para o botão */
         .button {
             margin-top: 20px;
             padding: 10px 20px;
-            background: #28a745;
+            background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradiente futurista */
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         .button:hover {
-            background: #218838;
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+            transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .button:active {
+            transform: scale(0.95); /* Efeito de redução ao clicar */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
     </style>
 </body>

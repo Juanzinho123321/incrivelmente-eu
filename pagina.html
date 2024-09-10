@@ -11,39 +11,38 @@
     href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;600&display=swap"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add('animate-start');
     });
-  </script>  
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Carregar efeito de explosão
       particlesJS.load("particles-js", "particles-explosion.json", function() {
         console.log("Efeito de explosão carregado");
-        // Mudar para o efeito padrão após 3 segundos
         setTimeout(() => {
           particlesJS.load("particles-js", "particles.json", function() {
             console.log("Configuração padrão carregada");
           });
-        }, 3000); // Tempo de duração do efeito de explosão
+        }, 3000);
       });
 
-      // Adicionar animação de entrada
       setTimeout(() => {
         document.body.classList.add('animate-in');
-      }, 3500); // Atraso para permitir o efeito de partículas
+      }, 3500);
     });
   </script>
   <style>
     body {
-      color: white;
+      color: #e0e0e0;
       background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
       margin: 0;
       font-family: "Chakra Petch", sans-serif;
       overflow-x: hidden;
       position: relative;
+      transition: background 0.5s;
     }
 
     .particles-container {
@@ -52,33 +51,204 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1; /* Coloca as partículas atrás do conteúdo */
+      z-index: -1;
     }
 
-    .chamada, .categoria, .sobre, .contato, footer {
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border-bottom: 2px solid #00ffcc;
+      position: relative; /* Mantém o cabeçalho como relativo */
+      z-index: 10;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav a {
+      color: #00ffcc;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #0072ff;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin: 0;
+      text-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+    }
+
+    section {
       opacity: 0;
-      transform: scale(0.5);
-      transition: opacity 1s ease-out, transform 1s ease-out;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      padding: 80px 20px 40px; /* Aumentado padding para evitar sobreposição com o cabeçalho fixo */
+      margin: 20px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     }
 
-    .animate-in .chamada, .animate-in .categoria, .animate-in .sobre, .animate-in .contato, .animate-in footer {
+    .animate-in section {
       opacity: 1;
-      transform: scale(1);
+      transform: translateY(0);
+    }
+
+    .video-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .video-card {
+      display: inline-block;
+      margin: 10px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 10px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .video-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 255, 204, 0.5);
+    }
+
+    .video-title {
+      margin-top: 5px;
+      font-weight: bold;
+    }
+
+    .contato form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input, textarea {
+      margin: 10px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: background 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    button {
+      padding: 10px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border-top: 2px solid #00ffcc;
+    }
+
+    .social-buttons {
+      margin-top: 10px;
+    }
+
+    .social-button {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .social-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .recursos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .recurso-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      width: 150px;
+      transition: transform 0.3s;
+    }
+
+    .recurso-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 255, 204, 0.5);
+    }
+
+    .curiosidades ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .curiosidades li {
+      margin: 10px 0;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .curiosidades li::before {
+      content: '\f05a'; /* Ícone de estrela */
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: #00ffcc;
     }
   </style>
 </head>
 <body>
-  
   <header>
+    <h1>Universo Questionável</h1>
     <nav>
       <ul>
         <li><a href="#home">Início</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#videos">Vídeos</a></li>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#curiosidades">Curiosidades</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
-    <h1>Universo Questionável</h1>
   </header>
 
   <section class="chamada" id="home">
@@ -107,21 +277,21 @@
           src="https://img.youtube.com/vi/5XEKoy3ULLg/maxresdefault.jpg"
           alt="Planetas"
         />
-        <div class="video-title">Aliens</div>
+        <div class="video-title">Planetas</div>
       </a>
       <a href="https://www.youtube.com/watch?v=lNbfmoSx1Sc" class="video-card">
         <img
           src="https://img.youtube.com/vi/lNbfmoSx1Sc/maxresdefault.jpg"
           alt="Planetas"
         />
-        <div class="video-title">Som</div>
+        <div class="video-title">Planetas</div>
       </a>
       <a href="https://www.youtube.com/watch?v=XidS8iZpI0k" class="video-card">
         <img
           src="https://img.youtube.com/vi/XidS8iZpI0k/maxresdefault.jpg"
           alt="Planetas"
         />
-        <div class="video-title">Espada de titânio</div>
+        <div class="video-title">Planetas</div>
       </a>
       <a href="https://www.youtube.com/watch?v=WdXQabecaEs" class="video-card">
         <img
@@ -147,14 +317,51 @@
     </div>
   </section>
 
+  <section class="recursos" id="recursos">
+    <h2>Recursos Úteis</h2>
+    <div class="recursos">
+      <div class="recurso-card">
+        <i class="fas fa-book"></i>
+        <h3>Livros</h3>
+        <p><a href="https://www.amazon.com.br/" target="_blank" style="color: #00ffcc;">Amazon</a></p>
+      </div>
+      <div class="recurso-card">
+        <i class="fas fa-video"></i>
+        <h3>Documentários</h3>
+        <p><a href="https://www.netflix.com/" target="_blank" style="color: #00ffcc;">Netflix</a></p>
+      </div>
+      <div class="recurso-card">
+        <i class="fas fa-globe"></i>
+        <h3>Sites Educativos</h3>
+        <p><a href="https://www.khanacademy.org/" target="_blank" style="color: #00ffcc;">Khan Academy</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="curiosidades" id="curiosidades">
+    <h2>Curiosidades do Cosmos</h2>
+    <ul>
+      <li>🌌 O universo é tão vasto que existem mais estrelas no céu do que grãos de areia em todas as praias da Terra.</li>
+      <li>🌑 Os buracos negros são regiões do espaço onde a gravidade é tão forte que nada, nem mesmo a luz, pode escapar.</li>
+      <li>🌠 A Via Láctea, nossa galáxia, é apenas uma entre bilhões de galáxias no universo observável.</li>
+      <li>🪐 Os planetas gasosos, como Júpiter e Saturno, têm anéis feitos de partículas de gelo e rocha.</li>
+      <li>✨ A luz das estrelas que vemos pode ter levado milhões de anos para chegar até nós.</li>
+      <li>🛰 O espaço é quase um vácuo absoluto, com muito poucas partículas por metro cúbico.</li>
+      <li>🌍 A Terra é o único planeta conhecido que suporta vida, mas existem muitos exoplanetas que podem ter condições semelhantes.</li>
+      <li>🔭 O telescópio Hubble já ajudou a descobrir que o universo está se expandindo.</li>
+    </ul>
+  </section>
+
   <section class="sobre" id="sobre">
     <h2>Intuito da página</h2>
     <p>
       Bem-vindo ao Universo Questionável! Aqui, exploramos os mistérios do cosmos e as teorias que nos cercam, sempre com a intenção de despertar a curiosidade e o aprendizado. Nossa missão é criar um espaço onde todos possam compartilhar ideias, discutir conceitos e descobrir novas perspectivas sobre o universo.
-
-Acreditamos que cada pergunta é uma porta para o conhecimento, e cada resposta nos aproxima mais da verdade. Junte-se a nós nessa jornada de descoberta e reflexão!
-
-Este projeto é um trabalho de escola, e gostaríamos de agradecer à professora Letícia pelo apoio e incentivo ao longo dessa aventura!
+    </p>
+    <p>
+      Acreditamos que cada pergunta é uma porta para o conhecimento, e cada resposta nos aproxima mais da verdade. Junte-se a nós nessa jornada de descoberta e reflexão!
+    </p>
+    <p>
+      Este projeto é um trabalho de escola, e gostaríamos de agradecer à professora Letícia pelo apoio e incentivo ao longo dessa aventura!
     </p>
   </section>
 
@@ -176,20 +383,17 @@ Este projeto é um trabalho de escola, e gostaríamos de agradecer à professora
         href="https://www.facebook.com/sharer/sharer.php?u=URL_DO_SEU_SITE"
         class="social-button"
         target="_blank"
-        >Facebook</a
-      >
+      ><i class="fab fa-facebook-f"></i> Facebook</a>
       <a
         href="https://twitter.com/intent/tweet?url=URL_DO_SEU_SITE"
         class="social-button"
         target="_blank"
-        >Twitter</a
-      >
+      ><i class="fab fa-twitter"></i> Twitter</a>
       <a
         href="https://www.instagram.com/?url=URL_DO_SEU_SITE"
         class="social-button"
         target="_blank"
-        >Instagram</a
-      >
+      ><i class="fab fa-instagram"></i> Instagram</a>
     </div>
   </footer>
 </body>
